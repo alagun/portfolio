@@ -1,5 +1,11 @@
+@use "./_variables.scss" as vars;
+
 * {
   box-sizing: border-box;
+}
+
+:root {
+  @include vars.export-variables;
 }
 
 body {
