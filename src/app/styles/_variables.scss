@@ -75,4 +75,29 @@
   --error-font: #ED4337;
   --primary-hover: #ccc;
   --border-gray: #D9D9D9;
+
+    // Цвета темы
+  --color-primary: #ff6600;
+  --color-primary-hover: #e65c00;
+  --color-primary-active: #cc5200;
+  
+  // Светлая тема
+  &[data-theme="light"] {
+    --color-bg-base: #f6f6ef;
+    --color-text-base: #000000;
+    --color-text-secondary: #828282;
+    --color-border: #d6d6d6;
+    --card-bg: #ffffff;
+    --header-bg: #ff6600;
+  }
+  
+  // Темная тема
+  &[data-theme="dark"] {
+    --color-bg-base: #1a1a1a;
+    --color-text-base: #ffffff;
+    --color-text-secondary: #a0a0a0;
+    --color-border: #404040;
+    --card-bg: #2a2a2a;
+    --header-bg: #ff6600; // или другой цвет для темной темы
+  }
 }

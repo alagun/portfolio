@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Tooltip } from 'antd'
 import { Moon, Sun } from 'lucide-react'
 import { useAppDispatch, useAppSelector } from '@/app/store/store.hooks'
-import { toggle } from '../themeSlice'
+import { toggle } from '../../themeSlice'
 import { selectThemeMode } from '@/app/store/selectors'
 import styles from './ThemeToggle.module.scss'
 
