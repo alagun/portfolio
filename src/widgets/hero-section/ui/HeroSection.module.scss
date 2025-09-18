@@ -1,0 +1,61 @@
+.heroCard {
+  margin-bottom: 24px;
+  
+  :global(.ant-card-body) {
+    padding: 32px;
+  }
+}
+
+.title {
+  color: var(--color-text-base) !important;
+  margin-bottom: 0 !important;
+  font-size: var(--font-size-xl) !important;
+  font-weight: var(--font-weight-800) !important;
+}
+
+.subtitle {
+  color: var(--color-text-secondary) !important;
+  margin-bottom: 0 !important;
+  font-size: var(--font-size-l) !important;
+  font-weight: var(--font-weight-600) !important;
+}
+
+.link {
+  color: var(--color-primary) !important;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  &:hover {
+    color: var(--color-primary-hover) !important;
+    text-decoration: underline;
+  }
+}
+
+.stats {
+  text-align: center;
+}
+
+.githubCard {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .heroCard {
+    :global(.ant-card-body) {
+      padding: 16px;
+    }
+  }
+  
+  .title {
+    font-size: var(--font-size-l) !important;
+  }
+  
+  .subtitle {
+    font-size: var(--font-size-m) !important;
+  }
+}

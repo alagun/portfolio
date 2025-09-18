@@ -22,6 +22,18 @@ body {
   min-height: 100vh;
 }
 
+.github-card-transition {
+  transition: opacity 0.3s ease-in-out;
+  
+  &[data-theme="light"] {
+    opacity: 1;
+  }
+  
+  &[data-theme="dark"] {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 768px) {
   .ant-table {
     font-size: 12px;
