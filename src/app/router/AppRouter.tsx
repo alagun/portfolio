@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 import App from '../App'
 import { MainPage } from '@/pages/main'
-// import { ProjectsPage } from '@/pages/projects'
+import { ProjectsPage } from '@/pages/projects'
 // import { NotFoundPage } from '@/pages/not-found'
 
 export const AppRouter = createBrowserRouter([
@@ -14,10 +14,10 @@ export const AppRouter = createBrowserRouter([
         index: true,
         element: <MainPage />,
       },
-    //   {
-    //     path: 'projects',
-    //     element: <ProjectsPage />,
-    //   },
+      {
+        path: 'projects',
+        element: <ProjectsPage />,
+      },
     ],
   },
 //   {
