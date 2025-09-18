@@ -85,17 +85,6 @@ export const NotFoundPage = () => {
             {" "}- мой аккаунт с репозиториями
           </Paragraph>
           
-          <Paragraph>
-            <Text strong>• </Text>
-            <Button 
-              type="link" 
-              onClick={() => window.open('https://alagun.github.io/portfolio/', '_blank')}
-              className={styles.linkButton}
-            >
-              Портфолио
-            </Button>
-            {" "}- онлайн портфолио с демо проектами
-          </Paragraph>
         </Space>
       </div>
     </div>
