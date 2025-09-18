@@ -1,5 +1,4 @@
 import { Card, Typography, Row, Col, Space } from 'antd'
-import { GithubOutlined, MessageOutlined } from '@ant-design/icons'
 import styles from './HeroSection.module.scss'
 
 const { Title, Text } = Typography
@@ -20,18 +19,19 @@ export const HeroSection = () => {
             <Space direction="vertical" size="small">
               <Text strong>📍 Местоположение:</Text>
               <Text>Брест, Беларусь</Text>
-              
-              <Text strong>📧 Контакты:</Text>
-              <Space direction="vertical">
-                <a href="https://t.me/AlexeyLagun" target="_blank" rel="noopener noreferrer" className={styles.link}>
-                  <MessageOutlined /> Telegram: @AlexeyLagun
-                </a>
-                <a href="https://github.com/alagun" target="_blank" rel="noopener noreferrer" className={styles.link}>
-                  <GithubOutlined /> GitHub: github.com/alagun
-                </a>
-              </Space>
             </Space>
           </Space>
+        </Col>
+        
+        <Col xs={24} md={8}>
+        {/* юсда воткнуть свою картинку */}
+          {/* <div className={styles.stats}>
+            <img 
+              src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=alagun&theme=city_lights" 
+              alt="GitHub Stats" 
+              className={styles.githubCard}
+            />
+          </div> */}
         </Col>
       </Row>
     </Card>

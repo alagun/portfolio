@@ -43,7 +43,6 @@
   border-radius: 8px;
 }
 
-// Адаптивность
 @media (max-width: 768px) {
   .heroCard {
     :global(.ant-card-body) {

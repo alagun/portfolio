@@ -5,7 +5,8 @@ import {
   ExperienceSection, 
   EducationSection, 
   ProjectsSection, 
-  AdditionalInfoSection 
+  AdditionalInfoSection, 
+  ContactsSection
 } from '@/widgets'
 import styles from './MainPage.module.scss'
 
@@ -26,6 +27,7 @@ export const MainPage = () => {
       </Row>
       
       <AdditionalInfoSection />
+      <ContactsSection/>
     </div>
   )
 }
