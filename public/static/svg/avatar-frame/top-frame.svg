@@ -1,0 +1,23 @@
+<svg width="469" height="469" viewBox="0 0 469 469" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="half-circle-mask">
+      <rect width="469" height="234.5" fill="white"/> 
+      <rect y="234.5" width="469" height="234.5" fill="black"/>
+    </mask>
+    
+    <linearGradient id="paint0_linear_63_336" x1="234.5" y1="0" x2="234.5" y2="469" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff6600"/>  
+      <stop offset="1" stop-color="#FF715B" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  
+  <circle 
+    cx="234.5" 
+    cy="234.5" 
+    r="214.5" 
+    stroke="url(#paint0_linear_63_336)" 
+    stroke-width="40"
+    mask="url(#half-circle-mask)"
+  />
+</svg>
+
