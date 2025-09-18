@@ -1,0 +1,32 @@
+.sectionCard {
+  margin-bottom: 24px;
+  height: 100%;
+  
+  :global(.ant-card-head-title) {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-600);
+    color: var(--color-text-base);
+  }
+}
+
+.link {
+  color: var(--color-primary) !important;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  font-size: var(--font-size-m);
+  
+  &:hover {
+    color: var(--color-primary-hover) !important;
+    text-decoration: underline;
+  }
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .link {
+    font-size: var(--font-size-s);
+  }
+}
