@@ -9,34 +9,62 @@
   }
 }
 
+.collapse {
+  background: none;
+  border: none;
+  
+  :global(.ant-collapse-item) {
+    border-bottom: none;
+  }
+  
+  :global(.ant-collapse-header) {
+    padding: 12px 0 !important;
+    font-weight: var(--font-weight-600);
+    color: var(--color-primary) !important;
+    font-size: var(--font-size-m);
+    
+    &:hover {
+      color: var(--color-primary-hover) !important;
+    }
+  }
+  
+  :global(.ant-collapse-content) {
+    border: none;
+  }
+  
+  :global(.ant-collapse-content-box) {
+    padding: 16px 0 0 0 !important;
+  }
+}
+
+.panel {
+  :global(.ant-collapse-header) {
+    display: flex;
+    align-items: center;
+  }
+}
+
 .githubCard {
   max-width: 100%;
   height: auto;
-  transition: all 0.3s ease;
-  
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.cardWithHover {
-  .githubCard {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    }
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
   }
 }
 
 @media (max-width: 768px) {
-  .githubCard {
-    margin-top: 12px;
+  .collapse {
+    :global(.ant-collapse-header) {
+      font-size: var(--font-size-s);
+      padding: 8px 0 !important;
+    }
   }
   
-  .cardWithHover {
-    .githubCard:hover {
-      transform: none;
-    }
+  .githubCard {
+    border-radius: 6px;
   }
 }

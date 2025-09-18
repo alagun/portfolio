@@ -1,9 +1,11 @@
-import { Card, Typography, Row, Col, Space } from 'antd'
+import { Card, Typography, Row, Col, Space, Collapse } from 'antd'
 import { useAppSelector } from '@/app/store/store.hooks'
 import { selectTheme } from '@/app/store/selectors'
+import { CaretRightOutlined } from '@ant-design/icons'
 import styles from './AdditionalInfoSection.module.scss'
 
 const { Text, Paragraph } = Typography
+const { Panel } = Collapse
 
 const THEME_MAP = {
   light: {
@@ -63,28 +65,40 @@ export const AdditionalInfoSection = () => {
           </Text>
         </Paragraph>
 
-
-        <Row  justify="center">
-          {cardTypes.map((type) => (
-            <Col 
-              key={type} 
-              xs={type === 'profile-details' ? 24 : layout.cols.xs} 
-              md={type === 'profile-details' ? 24 : layout.cols.md} 
-              lg={type === 'profile-details' ? 24 : layout.cols.lg}
-              style={{
-                display: 'flex',
-                justifyContent: 'center'
-              }}
-            >
-              <img 
-                src={getCardUrl(type)}
-                alt={`GitHub ${type}`}
-                className={styles.githubCard}
-                key={`${type}-${theme.mode}`}
-              />
-            </Col>
-          ))}
-        </Row>
+        <Collapse 
+          bordered={false}
+          expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
+          className={styles.collapse}
+          defaultActiveKey={['0']}
+        >
+          <Panel 
+            header="GitHub Статистика" 
+            key="1" 
+            className={styles.panel}
+          >
+            <Row justify="center" gutter={[16, 16]}>
+              {cardTypes.map((type) => (
+                <Col 
+                  key={type} 
+                  xs={type === 'profile-details' ? 24 : layout.cols.xs} 
+                  md={type === 'profile-details' ? 24 : layout.cols.md} 
+                  lg={type === 'profile-details' ? 24 : layout.cols.lg}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <img 
+                    src={getCardUrl(type)}
+                    alt={`GitHub ${type}`}
+                    className={styles.githubCard}
+                    key={`${type}-${theme.mode}`}
+                  />
+                </Col>
+              ))}
+            </Row>
+          </Panel>
+        </Collapse>
       </Space>
     </Card>
   )
