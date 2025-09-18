@@ -2,13 +2,13 @@ import { createBrowserRouter } from 'react-router-dom'
 import App from '../App'
 import { MainPage } from '@/pages/main'
 import { ProjectsPage } from '@/pages/projects'
-// import { NotFoundPage } from '@/pages/not-found'
+import { NotFoundPage } from '@/pages/not-found'
 
 export const AppRouter = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    // errorElement: <NotFoundPage />,
+    errorElement: <NotFoundPage />,
     children: [
       {
         index: true,
@@ -20,10 +20,10 @@ export const AppRouter = createBrowserRouter([
       },
     ],
   },
-//   {
-//     path: '*',
-//     element: <NotFoundPage />,
-//   },
+  {
+    path: '*',
+    element: <NotFoundPage />,
+  },
 ],
 {
   basename: import.meta.env.BASE_URL,
