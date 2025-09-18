@@ -1,0 +1,42 @@
+.sectionCard {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  
+  :global(.ant-card-head-title) {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-600);
+    color: var(--color-text-base);
+  }
+}
+
+.githubCard {
+  max-width: 100%;
+  height: auto;
+  transition: all 0.3s ease;
+  
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cardWithHover {
+  .githubCard {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .githubCard {
+    margin-top: 12px;
+  }
+  
+  .cardWithHover {
+    .githubCard:hover {
+      transform: none;
+    }
+  }
+}
