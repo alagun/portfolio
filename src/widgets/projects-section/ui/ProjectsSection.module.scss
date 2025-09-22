@@ -9,6 +9,107 @@
   }
 }
 
+.projectsPreview {
+  margin-bottom: 16px;
+}
+
+.projectPreviewCard {
+  background: var(--card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: var(--color-primary);
+    
+    .projectOverlay {
+      opacity: 1;
+    }
+    
+    .previewImg {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.projectImage {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--primary-gray), var(--card-bg));
+}
+
+.previewImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.projectPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  font-size: 2em;
+}
+
+.projectOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 102, 0, 0.9), rgba(255, 102, 0, 0.7));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.previewLink {
+  color: white !important;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+  }
+}
+
+.projectPreviewInfo {
+  padding: 16px;
+}
+
+.previewTitle {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-600);
+  color: var(--color-text-base);
+  margin-bottom: 4px;
+}
+
+.previewDescription {
+  font-size: var(--font-size-s);
+  color: var(--color-text-secondary);
+}
+
 .projectsButton {
   width: 100%;
   height: 48px;
@@ -39,6 +140,10 @@
 }
 
 @media (max-width: 768px) {
+  .projectImage {
+    height: 120px;
+  }
+  
   .projectsButton {
     height: 44px;
     font-size: var(--font-size-s);
@@ -47,5 +152,9 @@
   .githubLink {
     padding: 10px;
     font-size: var(--font-size-s);
+  }
+  
+  .projectPreviewInfo {
+    padding: 12px;
   }
 }

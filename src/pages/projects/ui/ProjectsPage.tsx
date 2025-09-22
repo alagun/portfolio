@@ -1,37 +1,18 @@
-// pages/projects/ui/ProjectsPage.tsx
-import { Button, Card, Typography, Space } from 'antd'
-import { ArrowLeftOutlined, GithubOutlined, GlobalOutlined } from '@ant-design/icons'
+import { Button, Card, Typography, Space, Image } from 'antd'
+import { ArrowLeftOutlined, GithubOutlined, GlobalOutlined, EyeOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
 import styles from './ProjectsPage.module.scss'
+import { ALL_PROJECTS } from '@/shared/constants/projects'
+import { Project } from '@/shared/types'
 
-const { Title, Paragraph } = Typography
-
-const PROJECTS = [
-  {
-    title: "CRM Система",
-    description: "Полнофункциональная CRM система с аналитикой и управлением клиентами",
-    tech: ["React", "TypeScript", "Redux", "Ant Design"],
-    githubUrl: "https://github.com/alagun/crm-system",
-    demoUrl: "https://alagun.github.io/crm-demo"
-  },
-  {
-    title: "Образовательная платформа",
-    description: "Платформа для онлайн-курсов с системой прогресса и тестирования",
-    tech: ["React", "Node.js", "MongoDB", "Material-UI"],
-    githubUrl: "https://github.com/alagun/education-platform",
-    demoUrl: "https://alagun.github.io/education-demo"
-  },
-  {
-    title: "E-commerce магазин",
-    description: "Интернет-магазин с корзиной, фильтрами и системой оплаты",
-    tech: ["React", "Context API", "Stripe", "Tailwind CSS"],
-    githubUrl: "https://github.com/alagun/ecommerce-shop",
-    demoUrl: "https://alagun.github.io/ecommerce-demo"
-  }
-]
+const { Title, Paragraph, Text } = Typography
 
 export const ProjectsPage = () => {
   const navigate = useNavigate()
+
+  const handleProjectClick = (demoUrl: string) => {
+    window.open(demoUrl, '_blank')
+  }
 
   return (
     <div className={styles.projectsPage}>
@@ -46,48 +27,82 @@ export const ProjectsPage = () => {
 
       <Title level={1}>Мои проекты</Title>
       <Paragraph>
-        Здесь собраны ключевые проекты, над которыми я работал. 
+        Здесь собраны ключевые коммерческие и pet-проекты, над которыми я работал. 
         Каждый проект включает описание, используемые технологии и ссылки на код и демо.
       </Paragraph>
 
       <Space direction="vertical" size="large" style={{ width: '100%' }}>
-        {PROJECTS.map((project, index) => (
-          <Card key={index} className={styles.projectCard}>
-            <div className={styles.projectHeader}>
-              <Title level={3} className={styles.projectTitle}>
-                {project.title}
-              </Title>
-              <Space>
-                <a 
-                  href={project.githubUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={styles.projectLink}
-                >
-                  <GithubOutlined /> Код
-                </a>
-                <a 
-                  href={project.demoUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={styles.projectLink}
-                >
-                  <GlobalOutlined /> Демо
-                </a>
-              </Space>
+        {ALL_PROJECTS.map((project: Project) => (
+          <Card key={project.id} className={styles.projectCard}>
+            <div className={styles.projectContent}>
+              <div 
+                className={styles.projectImageSection}
+                onClick={() => handleProjectClick(project.demoUrl)}
+              >
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  preview={false}
+                  className={styles.projectImage}
+                  placeholder={
+                    <div className={styles.projectPlaceholder}>
+                      <EyeOutlined />
+                    </div>
+                  }
+                />
+                <div className={styles.projectOverlay}>
+                  <EyeOutlined className={styles.viewIcon} />
+                  <Text className={styles.viewText}>Посмотреть демо</Text>
+                </div>
+              </div>
+              
+              <div className={styles.projectInfo}>
+                <div className={styles.projectHeader}>
+                  <div>
+                    <Title level={3} className={styles.projectTitle}>
+                      {project.title}
+                    </Title>
+                    {project.period && (
+                      <Text type="secondary" className={styles.projectPeriod}>
+                        {project.period}
+                      </Text>
+                    )}
+                  </div>
+                  <Space>
+                    {project.githubUrl && (
+                      <a 
+                        href={project.githubUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className={styles.projectLink}
+                      >
+                        <GithubOutlined /> Код
+                      </a>
+                    )}
+                    <a 
+                      href={project.demoUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className={styles.projectLink}
+                    >
+                      <GlobalOutlined /> Демо
+                    </a>
+                  </Space>
+                </div>
+                
+                <Paragraph className={styles.projectDescription}>
+                  {project.description}
+                </Paragraph>
+                
+                <Space wrap className={styles.techStack}>
+                  {project.tech.map((tech, techIndex) => (
+                    <span key={techIndex} className={styles.techTag}>
+                      {tech}
+                    </span>
+                  ))}
+                </Space>
+              </div>
             </div>
-            
-            <Paragraph className={styles.projectDescription}>
-              {project.description}
-            </Paragraph>
-            
-            <Space wrap className={styles.techStack}>
-              {project.tech.map((tech, techIndex) => (
-                <span key={techIndex} className={styles.techTag}>
-                  {tech}
-                </span>
-              ))}
-            </Space>
           </Card>
         ))}
       </Space>
