@@ -1,0 +1,30 @@
+.githubCol {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.githubCard {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-primary);
+  }
+}
+
+@media (max-width: 768px) {
+  .githubCol {
+    margin-bottom: 12px;
+  }
+  
+  .githubCard {
+    border-radius: 8px;
+  }
+}
