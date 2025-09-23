@@ -8,6 +8,8 @@ import { Header } from '@/widgets/header'
 import styles from './styles/App.module.scss'
 import "./styles/global.scss";
 
+const preloadMainPage = () => import('@/pages/main')
+
 const { Content } = Layout
 
 export default function App () {
@@ -15,6 +17,8 @@ export default function App () {
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme.mode)
+    
+    preloadMainPage()
   }, [theme.mode])
 
   return (
