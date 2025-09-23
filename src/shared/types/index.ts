@@ -1,2 +1,3 @@
 export { Certificate, CertificateModalState } from './certificates/types'
-export { Projects, Project  } from './projects/projects'
+export { IProjects, IProject  } from './projects/projects'
+export { ISkills, ISkill  } from './skills/skills'

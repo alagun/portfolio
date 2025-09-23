@@ -1,6 +1,6 @@
-import { Projects } from "@/shared/types";
+import { IProjects } from "@/shared/types";
 
-const PROJECTS: Projects = [
+const PROJECTS: IProjects = [
   {
     id: 1,
     title: "Redev Course Projects",

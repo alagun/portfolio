@@ -1,53 +1,238 @@
 .sectionCard {
   margin-bottom: 24px;
+  height: 100%;
   
   :global(.ant-card-head-title) {
     font-size: var(--font-size-l);
     font-weight: var(--font-weight-600);
-    color: var(--color-text-base);
+    color: var(--color-text-heading);
+    line-height: 1.4;
   }
 }
 
 .skillsGrid {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 16px;
+  gap: var(--spacing-lg);
+  justify-content: center;
 }
 
-.skillTag {
-  padding: 6px 12px;
-  background-color: var(--color-primary);
-  color: white;
-  border-radius: 16px;
-  font-size: var(--font-size-s);
-  font-weight: var(--font-weight-500);
-  transition: all var(--transition-duration) var(--transition-timing-fn);
+.skillItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-lg);
+  transition: all var(--transition-duration) var(--ease-out);
+  cursor: pointer;
+  min-width: 80px;
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  animation: slideUpFade 0.6s var(--ease-bounce) forwards;
   
   &:hover {
-    background-color: var(--color-primary-hover);
-    transform: translateY(-1px);
+    background-color: var(--color-bg-light);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: var(--box-shadow-lg);
+    
+    .skillIcon {
+      transform: scale(1.1) rotate(5deg);
+      filter: brightness(1.1) saturate(1.2);
+    }
+    
+    .pulseEffect {
+      opacity: 1;
+      transform: scale(1.4);
+    }
+  }
+  
+  &.animated {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
-.skillIcons {
-  text-align: center;
-  padding: 16px 0;
+.iconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.iconsImage {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
+.skillIcon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: var(--border-radius-md);
+  transition: all 0.4s var(--ease-out);
+  position: relative;
+  z-index: 2;
+}
+
+.pulseEffect {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  background: var(--color-primary);
+  border-radius: var(--border-radius-lg);
+  opacity: 0;
+  transition: all 0.5s var(--ease-out);
+  z-index: 1;
+}
+
+.skillName {
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-500);
+  color: var(--color-text-base);
+  text-align: center;
+  line-height: 1.2;
+  transition: all var(--transition-duration) var(--ease-in-out);
+}
+
+.skillItem:hover .skillName {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-600);
+  transform: translateY(1px);
+}
+
+.tooltip {
+  :global(.ant-tooltip-inner) {
+    background: var(--color-bg-tooltip) !important;
+    color: var(--color-text-base) !important;
+    border-radius: var(--border-radius-lg) !important;
+    padding: var(--spacing-lg) !important;
+    font-size: var(--font-size-s) !important;
+    font-weight: var(--font-weight-500) !important;
+    box-shadow: var(--shadow-tooltip) !important;
+    border: 1px solid var(--color-border) !important;
+    min-height: auto !important;
+    max-width: 200px !important;
+  }
+  
+  :global(.ant-tooltip-arrow) {
+    &::before {
+      background: var(--color-bg-tooltip) !important;
+      border: 1px solid var(--color-border) !important;
+    }
+  }
+}
+
+.tooltipContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  text-align: center;
+}
+
+.tooltipTitle {
+  font-size: var(--font-size-m) !important;
+  font-weight: var(--font-weight-600) !important;
+  color: var(--color-primary) !important;
+  line-height: 1.2;
+}
+
+.tooltipDescription {
+  font-size: var(--font-size-s) !important;
+  font-weight: var(--font-weight-400) !important;
+  color: var(--color-text-secondary) !important;
+  line-height: 1.3;
+}
+
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  70% {
+    transform: translateY(-2px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.tooltip :global(.ant-tooltip) {
+  animation: tooltipFadeIn 0.3s var(--ease-out) !important;
+}
+
+@keyframes tooltipFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @media (max-width: 768px) {
   .skillsGrid {
-    justify-content: center;
+    gap: var(--spacing-md);
   }
   
-  .skillTag {
-    font-size: var(--font-size-s);
-    padding: 4px 10px;
+  .skillItem {
+    padding: var(--spacing-sm);
+    min-width: 70px;
+    animation-duration: 0.4s;
+    
+    &:hover {
+      transform: translateY(-2px) scale(1.02);
+    }
+  }
+  
+  .skillIcon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .pulseEffect {
+    width: 46px;
+    height: 46px;
+  }
+  
+  .skillName {
+    font-size: var(--font-size-xs);
+  }
+  
+  .tooltip {
+    :global(.ant-tooltip-inner) {
+      padding: var(--spacing-md) !important;
+      font-size: var(--font-size-xs) !important;
+      max-width: 160px !important;
+    }
+  }
+  
+  .tooltipTitle {
+    font-size: var(--font-size-s) !important;
+  }
+  
+  .tooltipDescription {
+    font-size: var(--font-size-xs) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .skillsGrid {
+    gap: var(--spacing-sm);
+  }
+  
+  .skillItem {
+    min-width: 60px;
+    padding: var(--spacing-xs);
+  }
+  
+  .skillIcon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .tooltip {
+    :global(.ant-tooltip-inner) {
+      padding: var(--spacing-sm) !important;
+      max-width: 140px !important;
+    }
   }
 }
