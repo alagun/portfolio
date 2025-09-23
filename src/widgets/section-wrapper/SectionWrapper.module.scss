@@ -1,0 +1,180 @@
+.wrapper {
+  width: 100%;
+  position: relative;
+  transition: opacity 0.3s var(--ease-out);
+}
+
+.fallback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  background: transparent;
+  border-radius: var(--border-radius-lg);
+  
+  animation: fadeIn 0.5s var(--ease-out) forwards;
+}
+
+.content {
+  animation: slideUpFade 0.6s var(--ease-out) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skeletonCard {
+  background: var(--color-bg-container);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-light);
+}
+
+.skeletonHeader {
+  height: 24px;
+  background: var(--color-bg-light);
+  border-radius: var(--border-radius-sm);
+  margin-bottom: var(--spacing-lg);
+  width: 60%;
+}
+
+.skeletonContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.skeletonLine {
+  height: 16px;
+  background: var(--color-bg-light);
+  border-radius: var(--border-radius-sm);
+  
+  &:nth-child(1) { width: 100%; }
+  &:nth-child(2) { width: 90%; }
+  &:nth-child(3) { width: 80%; }
+  &:nth-child(4) { width: 70%; }
+}
+
+@media (max-width: 768px) {
+  .fallback {
+    min-height: 150px;
+  }
+  
+  .skeletonCard {
+    padding: var(--spacing-lg);
+  }
+  
+  .skeletonHeader {
+    height: 20px;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .skeletonLine {
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fallback {
+    min-height: 120px;
+  }
+  
+  .skeletonCard {
+    padding: var(--spacing-md);
+  }
+  
+  .skeletonHeader {
+    height: 18px;
+    width: 70%;
+  }
+  
+  .skeletonLine {
+    height: 12px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.skeletonItem {
+  height: 80px;
+  background: var(--color-bg-light);
+  border-radius: var(--border-radius-md);
+  animation: pulse 2s var(--ease-in-out) infinite;
+}
+
+.skeletonCards {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.skeletonCardItem {
+  background: var(--color-bg-container);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--color-border-light);
+}
+
+.skeletonCardHeader {
+  height: 20px;
+  background: var(--color-bg-light);
+  border-radius: var(--border-radius-sm);
+  margin-bottom: var(--spacing-md);
+  width: 80%;
+}
+
+.skeletonCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.skeletonCardLine {
+  height: 14px;
+  background: var(--color-bg-light);
+  border-radius: var(--border-radius-sm);
+  
+  &:nth-child(1) { width: 100%; }
+  &:nth-child(2) { width: 90%; }
+  &:nth-child(3) { width: 60%; }
+}
