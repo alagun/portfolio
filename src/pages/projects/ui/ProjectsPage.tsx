@@ -3,7 +3,7 @@ import { ArrowLeftOutlined, GithubOutlined, GlobalOutlined, EyeOutlined } from '
 import { useNavigate } from 'react-router-dom'
 import styles from './ProjectsPage.module.scss'
 import { ALL_PROJECTS } from '@/shared/constants/projects'
-import { Project } from '@/shared/types'
+import { IProject } from '@/shared/types'
 
 const { Title, Paragraph, Text } = Typography
 
@@ -32,7 +32,7 @@ export const ProjectsPage = () => {
       </Paragraph>
 
       <Space direction="vertical" size="large" style={{ width: '100%' }}>
-        {ALL_PROJECTS.map((project: Project) => (
+        {ALL_PROJECTS.map((project: IProject) => (
           <Card key={project.id} className={styles.projectCard}>
             <div className={styles.projectContent}>
               <div 
