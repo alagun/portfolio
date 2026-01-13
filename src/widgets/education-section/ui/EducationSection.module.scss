@@ -126,7 +126,7 @@
   align-items: center;
   gap: 8px;
   padding: 12px;
-  background: linear-gradient(135deg, var(--primary-gray), var(--card-bg));
+  background: linear-gradient(135deg, var(--card-bg), var(--primary-gray));
   border-radius: 8px;
   margin-top: 8px;
 }
@@ -138,6 +138,7 @@
 
 .footerText {
   font-size: var(--font-size-s) !important;
+  color: var(--color-text-base) !important;
   font-style: italic;
   margin: 0;
 }

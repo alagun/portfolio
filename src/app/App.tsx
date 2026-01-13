@@ -16,18 +16,19 @@ export default function App () {
   const theme = useAppSelector(selectTheme)
 
   useEffect(() => {
-    document.body.setAttribute('data-theme', theme.mode)
-    
+    document.documentElement.setAttribute('data-theme', theme.mode)
     preloadMainPage()
   }, [theme.mode])
 
   return (
     <ConfigProvider theme={getCustomTheme(theme)}>
       <Layout className={styles.layout}>
-        <Header/>
-        <Content className={styles.content}>
-          <Outlet />
-        </Content>
+        <Header />
+        <div className={styles.contentWrapper}>
+          <Content className={styles.content}>
+            <Outlet />
+          </Content>
+        </div>
       </Layout>
     </ConfigProvider>
   )
