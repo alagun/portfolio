@@ -52,15 +52,13 @@
 }
 
 @media (max-width: 768px) {
-  .photoContainer {
-    width: 72%;
-    height: 72%;
+  .avatarContainer {
+    margin-top: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .photoContainer {
-    width: 68%;
-    height: 68%;
+  .avatarContainer {
+    margin-top: 1rem;
   }
 }

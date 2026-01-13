@@ -142,11 +142,17 @@
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .heroContent {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 16px;
     text-align: center;
+  }
+
+  .heroCard {
+    :global(.ant-card-body) {
+      padding: 20px;
+    }
   }
   
   .avatarSection {
@@ -155,9 +161,11 @@
   
   .textContent {
     align-items: center;
+    gap: 0
   }
   
   .details {
+    margin: 0;
     align-items: center;
   }
   
@@ -166,32 +174,6 @@
   }
   
   .actions {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 768px) {
-  .heroCard {
-    :global(.ant-card-body) {
-      padding: 24px;
-    }
-  }
-  
-  .heroContent {
-    gap: 24px;
-  }
-  
-  .title {
-    font-size: 2em !important;
-  }
-  
-  .subtitle {
-    font-size: 1.2em !important;
-  }
-  
-  .actions {
-    flex-direction: column;
     width: 100%;
     
     :global(.ant-btn) {
@@ -204,7 +186,7 @@
 @media (max-width: 480px) {
   .heroCard {
     :global(.ant-card-body) {
-      padding: 20px;
+      padding: 10px;
     }
   }
   
