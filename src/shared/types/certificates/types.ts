@@ -1,4 +1,4 @@
-export interface Certificate {
+export interface ICertificate {
   id: number
   title: string
   issuer: string
@@ -8,4 +8,4 @@ export interface Certificate {
   description: string
 }
 
-export type CertificateModalState = Certificate | null
+export type CertificateModalState = ICertificate | null

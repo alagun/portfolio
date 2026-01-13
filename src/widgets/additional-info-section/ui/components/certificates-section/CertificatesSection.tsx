@@ -1,40 +1,12 @@
 import { Row, Col, Typography, Modal, Image } from 'antd'
 import { EyeOutlined, FilePdfOutlined } from '@ant-design/icons'
 import { useState } from 'react'
-import styles from './CertificatesSection.module.scss'
 import { CertificateModalState } from '@/shared/types/certificates/types'
+import CERTIFICATES from '@/shared/constants/certificates'
+import styles from './CertificatesSection.module.scss'
 
 const { Text, Title } = Typography
 
-const CERTIFICATES = [
-  {
-    id: 1,
-    title: "JavaScript/FrontEnd",
-    issuer: "RS School",
-    date: "2022", 
-    file: "/static/certificates/rsshool-certificate.pdf",
-    previewImage: "/static/certificates/previews/rsshool-preview.jpg",
-    description: "Курс JavaScript с практическими заданиями"
-  },
-  {
-    id: 2,
-    title: "React Developer Certificate",
-    issuer: "Coursera",
-    date: "2023",
-    file: "/static/certificates/coursera-certificate.pdf",
-    previewImage: "/static/certificates/previews/coursera-preview.jpg",
-    description: "Комплексный курс по фронтенд разработке"
-  },
-  {
-    id: 3,
-    title: "Frontend Development",
-    issuer: "Redev",
-    date: "2025",
-    file: "/static/certificates/redev-js-certificate.pdf",
-    previewImage: "/static/certificates/previews/redev-js-preview.jpg",
-    description: "Модуль JavaScript"
-  },
-]
 
 export const CertificatesSection = () => {
   const [modalVisible, setModalVisible] = useState(false)

@@ -8,7 +8,7 @@ const PROJECTS: IProjects = [
     tech: ["React", "TypeScript", "SCSS", "Vite", "Webpack"],
     githubUrl: "https://github.com/alagun/Redev",
     demoUrl: "https://alagun.github.io/Redev/",
-    image: "/static/projects/redev-preview.png"
+    image: new URL("/static/projects/redev-preview.png", import.meta.url).href,    
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const PROJECTS: IProjects = [
     tech: ["React", "YouTube API", "Material-UI", "Axios", "React Router"],
     githubUrl: "https://github.com/alagun/YoutubeSPA",
     demoUrl: "https://alagun.github.io/YoutubeSPA/",
-    image: "/static/projects/youtube-spa-preview.png"
+    image: new URL("/static/projects/youtube-spa-preview.png", import.meta.url).href, 
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const PROJECTS: IProjects = [
     tech: ["React", "TypeScript", "Chart.js", "Coincap API", "Ant Design"],
     githubUrl: "https://github.com/alagun/CoincapSPA",
     demoUrl: "https://alagun.github.io/CoincapSPA/",
-    image: "/static/projects/coincap-preview.png"
+    image: new URL("/static/projects/coincap-preview.png", import.meta.url).href,
   },
   {
     id: 4,
@@ -35,8 +35,7 @@ const PROJECTS: IProjects = [
     tech: ["React", "TypeScript", "REST API", "CSS Modules", "Vite"],
     githubUrl: "https://github.com/alagun/NewsSPA",
     demoUrl: "https://alagun.github.io/NewsSPA/",
-    image: "/static/projects/news-spa-preview.png"
-
+    image: new URL("/static/projects/news-spa-preview.png", import.meta.url).href,
   },
   {
     id: 5,
@@ -45,17 +44,16 @@ const PROJECTS: IProjects = [
     tech: ["React", "TypeScript", "Redux", "Адаптивная верстка"],
     demoUrl: "https://speechup.ru/",
     period: "Май 2023 – Май 2024",
-    image: "/static/projects/speechup-preview.png"
-
+    image: new URL("/static/projects/speechup-preview.png", import.meta.url).href,
   },
   {
     id: 6,
-	title: "CRM Система - EasySales",
+    title: "CRM Система - EasySales",
     description: "Разработка полнофункциональной CRM системы с аналитикой и управлением клиентами. Оптимизация производительности ключевых страниц, что сократило время загрузки на 15%.",
     tech: ["React 18", "TypeScript", "Redux Toolkit", "Ant Design", "REST API"],
     demoUrl: "http://easysales.pro/",
     period: "Май 2024 – Июнь 2025",
-    image: "/static/projects/easysales-preview.png"
+    image: new URL("/static/projects/easysales-preview.png", import.meta.url).href
   }
 ];
 

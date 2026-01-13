@@ -1,14 +1,19 @@
 import { Card, Typography, Space, Button } from 'antd'
 import { DownloadOutlined, MessageOutlined, GithubOutlined } from '@ant-design/icons'
-import styles from './HeroSection.module.scss'
 import { AvatarWithFrame } from './AvatarWithFrame'
+import styles from './HeroSection.module.scss'
 
 const { Title, Text } = Typography
 
 export const HeroSection = () => {
+
+  const cvUrl = new URL('/cv-alexey-lagun.pdf', import.meta.url).href;
+  const avatarUrl = new URL('/images/avatar.png', import.meta.url).href;
+
+
   const handleDownloadCV = () => {
     const link = document.createElement('a')
-    link.href = '/cv-alexey-lagun.pdf'
+    link.href = cvUrl
     link.download = 'Alexey-Lagun-CV.pdf'
     link.click()
   }
@@ -22,9 +27,9 @@ export const HeroSection = () => {
       <div className={styles.heroContent}>
         <div className={styles.avatarSection}>
           <AvatarWithFrame 
-            src="/images/avatar.png"
-            alt="Алексей Лагун"
-            size={480}
+            src= { avatarUrl }
+            alt= "Алексей Лагун"
+            size= {480}
           />
         </div>
 
