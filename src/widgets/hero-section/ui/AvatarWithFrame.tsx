@@ -13,6 +13,7 @@ export const AvatarWithFrame = ({
   size = 280 
 }: AvatarWithFrameProps) => {
   const topFrameUrl = new URL('/static/svg/avatar-frame/top-frame.svg', import.meta.url).href;
+  const bottomFrameUrl = new URL('/static/svg/avatar-frame/bottom-frame.svg', import.meta.url).href;
   
   return (
     <div className={styles.avatarContainer} style={{ width: size, height: size }}>
@@ -38,7 +39,7 @@ export const AvatarWithFrame = ({
       </div>
       
       <img 
-        src="/static/svg/avatar-frame/bottom-frame.svg" 
+        src={bottomFrameUrl}
         alt="" 
         className={styles.bottomFrame}
         style={{ width: size, height: size }}

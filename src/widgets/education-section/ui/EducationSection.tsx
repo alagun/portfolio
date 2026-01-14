@@ -37,7 +37,7 @@ const EDUCATION_ITEMS = [
 export const EducationSection = () => {
   return (
     <Card title="🎓 Образование & Развитие" className={styles.sectionCard}>
-      <Space direction="vertical" size="large" style={{ width: '100%', gap: 0 }}>
+      <Space direction="vertical" size="large" style={{ width: '100%', gap: 8 }}>
         {EDUCATION_ITEMS.map((item, index) => (
           <div key={index} className={styles.educationItem}>
             <div className={styles.itemHeader}>

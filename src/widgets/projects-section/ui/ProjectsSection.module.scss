@@ -11,6 +11,10 @@
 
 .projectsPreview {
   margin-bottom: 16px;
+  
+  :global(.ant-col) {
+    display: flex;
+  }
 }
 
 .projectPreviewCard {
@@ -20,6 +24,9 @@
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   
   &:hover {
     transform: translateY(-4px);
@@ -39,9 +46,10 @@
 .projectImage {
   position: relative;
   width: 100%;
-  height: 140px;
+  height: 160px;
   overflow: hidden;
   background: linear-gradient(135deg, var(--primary-gray), var(--card-bg));
+  flex-shrink: 0;
 }
 
 .previewImg {
@@ -96,6 +104,9 @@
 
 .projectPreviewInfo {
   padding: 16px;
+  flex-grow: 1; // Растягивается на доступное пространство
+  display: flex;
+  flex-direction: column;
 }
 
 .previewTitle {
@@ -141,7 +152,7 @@
 
 @media (max-width: 768px) {
   .projectImage {
-    height: 120px;
+    height: 140px;
   }
   
   .projectsButton {
