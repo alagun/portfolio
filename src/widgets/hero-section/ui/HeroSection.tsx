@@ -43,7 +43,7 @@ export const HeroSection = () => {
                 Frontend-разработчик
               </Title>
               <Text className={styles.techStack}>
-                React • TypeScript • JavaScript • Redux
+                React • TypeScript • JavaScript • RTK
               </Text>
             </div>
 
