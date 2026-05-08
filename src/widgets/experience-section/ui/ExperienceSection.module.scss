@@ -1,6 +1,6 @@
 .sectionCard {
   margin-bottom: 24px;
-  
+
   :global(.ant-card-head-title) {
     font-size: var(--font-size-l);
     font-weight: var(--font-weight-600);
@@ -11,7 +11,7 @@
 .link {
   color: var(--color-primary) !important;
   text-decoration: none;
-  
+
   &:hover {
     color: var(--color-primary-hover) !important;
     text-decoration: underline;
@@ -21,7 +21,7 @@
 .list {
   padding-left: 20px;
   margin: 12px 0 0 0;
-  
+
   li {
     margin-bottom: 8px;
     line-height: 1.6;
@@ -30,11 +30,16 @@
   }
 }
 
+.text {
+  color: var(--color-primary) !important;
+  text-decoration: none;
+}
+
 // Адаптивность
 @media (max-width: 768px) {
   .list {
     padding-left: 16px;
-    
+
     li {
       font-size: var(--font-size-s);
     }
