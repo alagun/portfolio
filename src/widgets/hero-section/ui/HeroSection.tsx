@@ -1,40 +1,42 @@
-import { Card, Typography, Space, Button } from 'antd'
-import { DownloadOutlined, MessageOutlined, GithubOutlined } from '@ant-design/icons'
-import { AvatarWithFrame } from './AvatarWithFrame'
-import styles from './HeroSection.module.scss'
+import {
+  DownloadOutlined,
+  GithubOutlined,
+  MessageOutlined,
+} from "@ant-design/icons";
+import { Button, Card, Space, Typography } from "antd";
+import { AvatarWithFrame } from "./AvatarWithFrame";
+import styles from "./HeroSection.module.scss";
 
-const { Title, Text } = Typography
+const { Title, Text } = Typography;
 
 export const HeroSection = () => {
-
-  const cvUrl = new URL('/cv-alexey-lagun.pdf', import.meta.url).href;
-  const avatarUrl = new URL('/images/avatar.png', import.meta.url).href;
-
+  const cvUrl = new URL("/cv-alexey-lagun.pdf", import.meta.url).href;
+  const avatarUrl = new URL("/images/avatar.png", import.meta.url).href;
 
   const handleDownloadCV = () => {
-    const link = document.createElement('a')
-    link.href = cvUrl
-    link.download = 'Alexey-Lagun-CV.pdf'
-    link.click()
-  }
+    const link = document.createElement("a");
+    link.href = cvUrl;
+    link.download = "Alexey-Lagun-CV.pdf";
+    link.click();
+  };
 
   const handleContact = () => {
-    window.open('https://t.me/AlexeyLagun', '_blank')
-  }
+    window.open("https://t.me/AlexeyLagun", "_blank");
+  };
 
   return (
     <Card className={styles.heroCard}>
       <div className={styles.heroContent}>
         <div className={styles.avatarSection}>
-          <AvatarWithFrame 
-            src= { avatarUrl }
-            alt= "Алексей Лагун"
-            size= {480}
-          />
+          <AvatarWithFrame src={avatarUrl} alt="Алексей Лагун" size={480} />
         </div>
 
         <div className={styles.textSection}>
-          <Space direction="vertical" size="large" className={styles.textContent}>
+          <Space
+            direction="vertical"
+            size="large"
+            className={styles.textContent}
+          >
             <div>
               <Title level={1} className={styles.title}>
                 Алексей Лагун
@@ -43,14 +45,14 @@ export const HeroSection = () => {
                 Frontend-разработчик
               </Title>
               <Text className={styles.techStack}>
-                React • TypeScript • JavaScript • RTK
+                React • TypeScript • JavaScript • RTK • Next.js
               </Text>
             </div>
 
             <div className={styles.description}>
               <Text>
-                Создаю современные и производительные веб-приложения. 
-                Более 2 лет коммерческого опыта в разработке интерфейсов.
+                Создаю современные и производительные веб-приложения. Более 2
+                лет коммерческого опыта в разработке интерфейсов.
               </Text>
             </div>
 
@@ -70,8 +72,8 @@ export const HeroSection = () => {
             </Space>
 
             <Space size="middle" className={styles.actions}>
-              <Button 
-                type="primary" 
+              <Button
+                type="primary"
                 size="large"
                 icon={<DownloadOutlined />}
                 onClick={handleDownloadCV}
@@ -79,7 +81,7 @@ export const HeroSection = () => {
               >
                 Скачать CV
               </Button>
-              <Button 
+              <Button
                 size="large"
                 icon={<MessageOutlined />}
                 onClick={handleContact}
@@ -87,10 +89,12 @@ export const HeroSection = () => {
               >
                 Написать мне
               </Button>
-              <Button 
+              <Button
                 type="text"
                 icon={<GithubOutlined />}
-                onClick={() => window.open('https://github.com/alagun', '_blank')}
+                onClick={() =>
+                  window.open("https://github.com/alagun", "_blank")
+                }
                 className={styles.ghostButton}
               >
                 GitHub
@@ -100,5 +104,5 @@ export const HeroSection = () => {
         </div>
       </div>
     </Card>
-  )
-}
+  );
+};
